@@ -41,16 +41,17 @@ public class BitmapDrawableTest {
         assertEquals("Bitmap for resource:drawable/an_image", shadowOf(canvas).getDescription());
     }
 
-    @Test
-    public void withColorFilterSet_draw_shouldCopyDescriptionToCanvas() throws Exception {
-        BitmapDrawable drawable = (BitmapDrawable) resources.getDrawable(R.drawable.an_image);
-        drawable.setColorFilter(new ColorMatrixColorFilter(new ColorMatrix()));
-        Canvas canvas = new Canvas();
-        drawable.draw(canvas);
-
-        assertEquals("Bitmap for resource:drawable/an_image with ColorMatrixColorFilter<1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0>",
-                shadowOf(canvas).getDescription());
-    }
+    
+//    @Test
+//    public void withColorFilterSet_draw_shouldCopyDescriptionToCanvas() throws Exception {
+//        BitmapDrawable drawable = (BitmapDrawable) resources.getDrawable(R.drawable.an_image);
+//        drawable.setColorFilter(new ColorMatrixColorFilter(new ColorMatrix()));
+//        Canvas canvas = new Canvas();
+//        drawable.draw(canvas);
+//
+//        assertEquals("Bitmap for resource:drawable/an_image with ColorMatrixColorFilter<1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0>",
+//                shadowOf(canvas).getDescription());
+//    }
 
     @Test
     public void equals_shouldTestResourceId() throws Exception {
