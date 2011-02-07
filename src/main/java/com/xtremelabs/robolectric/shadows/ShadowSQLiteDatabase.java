@@ -5,8 +5,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
+import static com.xtremelabs.robolectric.Robolectric.newInstanceOf;
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
+import static com.xtremelabs.robolectric.util.SQLite.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,11 +17,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Iterator;
 
-import static com.xtremelabs.robolectric.Robolectric.newInstanceOf;
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
-import static com.xtremelabs.robolectric.util.SQLite.*;
+import java.util.Iterator;
 
 /**
  * Shadow for {@code SQLiteDatabase} that simulates the movement of a {@code Cursor} through database tables.
@@ -34,72 +34,72 @@ public class ShadowSQLiteDatabase {
         try {
             Class.forName("org.h2.Driver").newInstance();
             connection = DriverManager.getConnection("jdbc:h2:mem:");
-        } catch (Exception e) {
+        } catch(Exception e) {
             throw new RuntimeException("SQL exception in openDatabase", e);
         }
+
         return newInstanceOf(SQLiteDatabase.class);
     }
 
     @Implementation
     public long insert(String table, String nullColumnHack, ContentValues values) {
         SQLStringAndBindings sqlInsertString = buildInsertString(table, values);
+
         try {
             PreparedStatement statement = connection.prepareStatement(sqlInsertString.sql, Statement.RETURN_GENERATED_KEYS);
-            Iterator<Object> columns = sqlInsertString.columnValues.iterator();
-            int i = 1;
-            while (columns.hasNext()) {
+            Iterator<Object>  columns   = sqlInsertString.columnValues.iterator();
+            int               i         = 1;
+
+            while(columns.hasNext()) {
                 statement.setObject(i++, columns.next());
             }
 
             statement.executeUpdate();
 
             ResultSet resultSet = statement.getGeneratedKeys();
-            if (resultSet.first()) {
+
+            if(resultSet.first()) {
                 return resultSet.getLong(1);
             }
-        } catch (SQLException e) {
+        } catch(SQLException e) {
             throw new RuntimeException("SQL exception in insert", e);
         }
+
         return -1;
     }
 
     @Implementation
-    public Cursor query(boolean distinct, String table, String[] columns,
-                        String selection, String[] selectionArgs, String groupBy,
-                        String having, String orderBy, String limit) {
-
+    public Cursor query(boolean distinct, String table, String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit) {
         String where = selection;
-        if (selection != null && selectionArgs != null) {
+
+        if((selection != null) && (selectionArgs != null)) {
             where = buildWhereClause(selection, selectionArgs);
         }
 
-        String sql = SQLiteQueryBuilder.buildQueryString(distinct, table,
-                columns, where, groupBy, having, orderBy, limit);
+        String    sql       = SQLiteQueryBuilder.buildQueryString(distinct, table, columns, where, groupBy, having, orderBy, limit);
 
         ResultSet resultSet;
+
         try {
             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            resultSet = statement.executeQuery(sql);
-        } catch (SQLException e) {
+            resultSet       = statement.executeQuery(sql);
+        } catch(SQLException e) {
             throw new RuntimeException("SQL exception in query", e);
         }
 
         SQLiteCursor cursor = new SQLiteCursor(null, null, null, null);
         shadowOf(cursor).setResultSet(resultSet);
+
         return cursor;
     }
 
     @Implementation
-    public Cursor query(String table, String[] columns, String selection,
-                        String[] selectionArgs, String groupBy, String having,
-                        String orderBy) {
+    public Cursor query(String table, String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy) {
         return query(false, table, columns, selection, selectionArgs, groupBy, having, orderBy, null);
     }
 
     @Implementation
-    public Cursor query(String table, String[] columns, String selection,
-                        String[] selectionArgs, String groupBy, String having,
-                        String orderBy, String limit) {
+    public Cursor query(String table, String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit) {
         return query(false, table, columns, selection, selectionArgs, groupBy, having, orderBy, limit);
     }
 
@@ -109,14 +109,15 @@ public class ShadowSQLiteDatabase {
 
         try {
             PreparedStatement statement = connection.prepareStatement(sqlUpdateString.sql);
-            Iterator<Object> columns = sqlUpdateString.columnValues.iterator();
-            int i = 1;
-            while (columns.hasNext()) {
+            Iterator<Object>  columns   = sqlUpdateString.columnValues.iterator();
+            int               i         = 1;
+
+            while(columns.hasNext()) {
                 statement.setObject(i++, columns.next());
             }
 
             return statement.executeUpdate();
-        } catch (SQLException e) {
+        } catch(SQLException e) {
             throw new RuntimeException("SQL exception in update", e);
         }
     }
@@ -127,14 +128,14 @@ public class ShadowSQLiteDatabase {
 
         try {
             return connection.prepareStatement(sql).executeUpdate();
-        } catch (SQLException e) {
+        } catch(SQLException e) {
             throw new RuntimeException("SQL exception in delete", e);
         }
     }
 
     @Implementation
     public void execSQL(String sql) throws android.database.SQLException {
-        if (!isOpen()) {
+        if(!isOpen()) {
             throw new IllegalStateException("database not open");
         }
 
@@ -142,14 +143,80 @@ public class ShadowSQLiteDatabase {
         String scrubbedSQL = sql.replaceAll("(?i:autoincrement)", "auto_increment");
         // Map 'integer' (sqlite) to 'bigint(19)' (h2).
         scrubbedSQL = scrubbedSQL.replaceAll("(?i:integer)", "bigint(19)");
+        
+        scrubbedSQL = scrubbedSQL.replaceAll("(?i:insert or replace)", "insert");
 
         try {
+        	System.out.println(scrubbedSQL);
             connection.createStatement().execute(scrubbedSQL);
-        } catch (java.sql.SQLException e) {
+        } catch(java.sql.SQLException e) {
             android.database.SQLException ase = new android.database.SQLException();
             ase.initCause(e);
             throw ase;
         }
+    }
+
+    @Implementation
+    public void execSQL(String sql, Object[] bindArgs)
+                 throws android.database.SQLException {
+        if(bindArgs == null) {
+            throw new IllegalArgumentException("Empty bindArgs");
+        }
+
+        if(!isOpen()) {
+            throw new IllegalStateException("database not open");
+        }
+
+        if(bindArgs != null) {
+            int numArgs = bindArgs.length;
+
+            for(int i = 0; i < numArgs; i++) {
+                Object value = bindArgs[i];
+            	
+                System.out.println("sql:" + sql);
+                System.out.println("value:" + value.toString());
+                
+            	if(value instanceof String) {
+            		sql = sql.replaceFirst("\\?", "\'" + value.toString() + "\'");
+            	} else if(value instanceof Integer || value instanceof Double) {
+            		sql = sql.replaceFirst("\\?", ((Number)value).toString());
+            	} else {
+            		
+            	}
+            	
+            }
+            
+            execSQL(sql);
+        }
+    }
+    
+    @Implementation
+    public  Cursor rawQuery(java.lang.String sql, java.lang.String[] selectionArgs) { 
+    	ResultSet resultSet;
+    	
+    	if(selectionArgs != null) {
+    		int numArgs = selectionArgs.length;
+    		
+    		for(int i = 0; i < numArgs; i++) {
+    			String value = selectionArgs[i];
+    			sql = sql.replaceFirst("\\?", "\'" + value.toString() + "\'");
+    		}
+    	}
+    	
+    	System.out.println(sql);
+
+        try {
+            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            resultSet       = statement.executeQuery(sql);
+            System.out.println(resultSet.toString());
+        } catch(SQLException e) {
+            throw new RuntimeException("SQL exception in query", e);
+        }
+
+        SQLiteCursor cursor = new SQLiteCursor(null, null, null, null);
+        shadowOf(cursor).setResultSet(resultSet);
+
+        return cursor;
     }
 
     @Implementation
@@ -159,13 +226,14 @@ public class ShadowSQLiteDatabase {
 
     @Implementation
     public void close() {
-        if (!isOpen()) {
+        if(!isOpen()) {
             return;
         }
+
         try {
             connection.close();
             connection = null;
-        } catch (SQLException e) {
+        } catch(SQLException e) {
             throw new RuntimeException("SQL exception in close", e);
         }
     }
