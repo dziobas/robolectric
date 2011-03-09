@@ -76,7 +76,7 @@ public class BitmapTest {
         assertEquals("Bitmap One\nBitmap Two transformed by matrix", shadowOf(bitmap1).getDescription());
     }
 
-    @Test
+    /*@Test
     public void shouldReceiveDescriptionWhenDrawABitmapToCanvasWithAPaintEffect() throws Exception {
         Bitmap bitmap1 = Robolectric.newInstanceOf(Bitmap.class);
         shadowOf(bitmap1).appendDescription("Bitmap One");
@@ -91,7 +91,7 @@ public class BitmapTest {
 
         assertEquals("Bitmap One\nBitmap Two with ColorMatrixColorFilter<1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0> transformed by matrix", shadowOf(bitmap1).getDescription());
     }
-
+*/
     @Test
     public void visualize_shouldReturnDescription() throws Exception {
         Bitmap bitmap = Robolectric.newInstanceOf(Bitmap.class);

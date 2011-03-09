@@ -40,6 +40,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.format.DateFormat;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -154,6 +155,7 @@ public class Robolectric {
                 ShadowContextWrapper.class,
                 ShadowContextThemeWrapper.class,
                 ShadowCookieManager.class,
+                ShadowDateFormat.class,
                 ShadowDefaultRequestDirector.class,
                 ShadowDisplay.class,
                 ShadowDrawable.class,
@@ -238,6 +240,10 @@ public class Robolectric {
 
     public static ShadowDrawable shadowOf(Drawable instance) {
         return (ShadowDrawable) shadowOf_(instance);
+    }
+    
+    public static ShadowDateFormat shadowOf(DateFormat instance) {
+    	return (ShadowDateFormat) shadowOf_(instance);
     }
 
     public static ShadowToast shadowOf(Toast instance) {
