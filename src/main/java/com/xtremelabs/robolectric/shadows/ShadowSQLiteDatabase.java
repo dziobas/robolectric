@@ -9,7 +9,11 @@ import static com.xtremelabs.robolectric.Robolectric.newInstanceOf;
 import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
-import static com.xtremelabs.robolectric.util.SQLite.*;
+import com.xtremelabs.robolectric.util.SQLite.SQLStringAndBindings;
+import static com.xtremelabs.robolectric.util.SQLite.buildDeleteString;
+import static com.xtremelabs.robolectric.util.SQLite.buildInsertString;
+import static com.xtremelabs.robolectric.util.SQLite.buildUpdateString;
+import static com.xtremelabs.robolectric.util.SQLite.buildWhereClause;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,6 +23,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import java.util.Iterator;
+
 
 /**
  * Shadow for {@code SQLiteDatabase} that simulates the movement of a {@code Cursor} through database tables.
@@ -32,8 +37,8 @@ public class ShadowSQLiteDatabase {
     @Implementation
     public static SQLiteDatabase openDatabase(String path, SQLiteDatabase.CursorFactory factory, int flags) {
         try {
-            Class.forName("org.h2.Driver").newInstance();
-            connection = DriverManager.getConnection("jdbc:h2:mem:");
+            Class.forName("org.sqlite.JDBC").newInstance();
+            connection = DriverManager.getConnection("jdbc:sqlite:test.db");
         } catch(Exception e) {
             throw new RuntimeException("SQL exception in openDatabase", e);
         }
@@ -139,16 +144,9 @@ public class ShadowSQLiteDatabase {
             throw new IllegalStateException("database not open");
         }
 
-        // Map 'autoincrement' (sqlite) to 'auto_increment' (h2).
-        String scrubbedSQL = sql.replaceAll("(?i:autoincrement)", "auto_increment");
-        // Map 'integer' (sqlite) to 'bigint(19)' (h2).
-        scrubbedSQL = scrubbedSQL.replaceAll("(?i:integer)", "bigint(19)");
-        
-        scrubbedSQL = scrubbedSQL.replaceAll("(?i:insert or replace)", "insert");
-
         try {
-        	System.out.println(scrubbedSQL);
-            connection.createStatement().execute(scrubbedSQL);
+            System.out.println(sql);
+            connection.createStatement().execute(sql);
         } catch(java.sql.SQLException e) {
             android.database.SQLException ase = new android.database.SQLException();
             ase.initCause(e);
@@ -172,42 +170,40 @@ public class ShadowSQLiteDatabase {
 
             for(int i = 0; i < numArgs; i++) {
                 Object value = bindArgs[i];
-            	
+
                 System.out.println("sql:" + sql);
                 System.out.println("value:" + value.toString());
-                
-            	if(value instanceof String) {
-            		sql = sql.replaceFirst("\\?", "\'" + value.toString() + "\'");
-            	} else if(value instanceof Integer || value instanceof Double) {
-            		sql = sql.replaceFirst("\\?", ((Number)value).toString());
-            	} else {
-            		
-            	}
-            	
+
+                if(value instanceof String) {
+                    sql = sql.replaceFirst("\\?", "\'" + value.toString() + "\'");
+                } else if(value instanceof Integer || value instanceof Double) {
+                    sql = sql.replaceFirst("\\?", ((Number) value).toString());
+                } else {
+                }
             }
-            
+
             execSQL(sql);
         }
     }
-    
+
     @Implementation
-    public  Cursor rawQuery(java.lang.String sql, java.lang.String[] selectionArgs) { 
-    	ResultSet resultSet;
-    	
-    	if(selectionArgs != null) {
-    		int numArgs = selectionArgs.length;
-    		
-    		for(int i = 0; i < numArgs; i++) {
-    			String value = selectionArgs[i];
-    			sql = sql.replaceFirst("\\?", "\'" + value.toString() + "\'");
-    		}
-    	}
-    	
-    	System.out.println(sql);
+    public Cursor rawQuery(java.lang.String sql, java.lang.String[] selectionArgs) {
+        ResultSet resultSet;
+
+        if(selectionArgs != null) {
+            int numArgs = selectionArgs.length;
+
+            for(int i = 0; i < numArgs; i++) {
+                String value = selectionArgs[i];
+                sql = sql.replaceFirst("\\?", "\'" + value.toString() + "\'");
+            }
+        }
+
+        System.out.println(sql);
 
         try {
-            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            resultSet       = statement.executeQuery(sql);
+            Statement statement = connection.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+            resultSet = statement.executeQuery(sql);
             System.out.println(resultSet.toString());
         } catch(SQLException e) {
             throw new RuntimeException("SQL exception in query", e);
