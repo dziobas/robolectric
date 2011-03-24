@@ -10,51 +10,51 @@ import com.xtremelabs.robolectric.internal.Implements;
 public class ShadowLog {
     @Implementation
     public static void v(String TAG, String message) {
-        System.out.println(TAG + ":\t " + message);
+        System.out.println("[V] "+TAG + ":\t " + message);
     }
 
     @Implementation
     public static void v(String TAG, String message, Throwable thr) {
-        System.out.println(TAG + ":\t " + message + " \n" + thr.toString());
+        System.out.println("[V] "+TAG + ":\t " + message + " \n" + thr.toString());
     }
 
     @Implementation
     public static void d(String TAG, String message) {
-        System.out.println(TAG + ":\t " + message);
+        System.out.println("[D] "+TAG + ":\t " + message);
     }
 
     @Implementation
     public static void d(String TAG, String message, Throwable thr) {
-        System.out.println(TAG + ":\t " + message + " \n" + thr.toString());
+        System.out.println("[D] "+TAG + ":\t " + message + " \n" + thr.toString());
     }
 
     @Implementation
     public static void i(String TAG, String message) {
-        System.out.println(TAG + ":\t " + message);
+        System.out.println("[I] "+TAG + ":\t " + message);
     }
 
     @Implementation
     public static void i(String TAG, String message, Throwable thr) {
-        System.out.println(TAG + ":\t " + message + " \n" + thr.toString());
+        System.out.println("[I] "+TAG + ":\t " + message + " \n" + thr.toString());
     }
 
     @Implementation
     public static void e(String TAG, String message) {
-        System.err.println(TAG + ":\t " + message);
+        System.err.println("[E] "+TAG + ":\t " + message);
     }
 
     @Implementation
     public static void e(String TAG, String message, Throwable thr) {
-        System.err.println(TAG + ":\t " + message + " \n" + thr.toString());
+        System.err.println("[E] "+TAG + ":\t " + message + " \n" + thr.toString());
     }
 
     @Implementation
     public static void wtf(String TAG, String message) {
-        System.err.println(TAG + ":\t " + message);
+        System.err.println("[WTF] "+TAG + ":\t " + message);
     }
 
     @Implementation
     public static void wtf(String TAG, String message, Throwable thr) {
-        System.err.println(TAG + ":\t " + message + " \n" + thr.toString());
+        System.err.println("[WTF] "+TAG + ":\t " + message + " \n" + thr.toString());
     }
 }
