@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import static com.xtremelabs.robolectric.Robolectric.newInstanceOf;
 import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+
+import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 import com.xtremelabs.robolectric.util.SQLite.SQLStringAndBindings;
@@ -32,21 +34,28 @@ import java.util.Iterator;
  */
 @Implements(SQLiteDatabase.class)
 public class ShadowSQLiteDatabase {
-    private static Connection connection;
+    private Connection connection;
 
     @Implementation
     public static SQLiteDatabase openDatabase(String path, SQLiteDatabase.CursorFactory factory, int flags) {
-        try {
+    	SQLiteDatabase db=null;
+    	try {
             Class.forName("org.sqlite.JDBC").newInstance();
-            connection = DriverManager.getConnection("jdbc:sqlite:test.db");
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:test.db");
+             db= newInstanceOf(SQLiteDatabase.class);
+            Robolectric.shadowOf(db).setConnection(connection);
         } catch(Exception e) {
             throw new RuntimeException("SQL exception in openDatabase", e);
         }
 
-        return newInstanceOf(SQLiteDatabase.class);
+		return db;
     }
 
-    @Implementation
+    private void setConnection(Connection connection) {
+		this.connection = connection;		
+	}
+
+	@Implementation
     public long insert(String table, String nullColumnHack, ContentValues values) {
         SQLStringAndBindings sqlInsertString = buildInsertString(table, values);
 

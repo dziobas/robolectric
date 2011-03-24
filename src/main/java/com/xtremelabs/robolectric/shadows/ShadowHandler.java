@@ -50,6 +50,13 @@ public class ShadowHandler {
     }
 
     @Implementation
+    public Message obtainMessage(int what) {
+    	Message message = new Message();
+    	message.what = what;
+    	return message;
+    }
+
+    @Implementation
     public final boolean sendMessage(final Message msg) {
         post(new Runnable() {
             @Override
