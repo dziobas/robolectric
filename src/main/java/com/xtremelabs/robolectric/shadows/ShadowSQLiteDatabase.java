@@ -1,5 +1,6 @@
 package com.xtremelabs.robolectric.shadows;
 
+
 import static com.xtremelabs.robolectric.Robolectric.newInstanceOf;
 import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 import static com.xtremelabs.robolectric.util.SQLite.buildDeleteString;
@@ -51,10 +52,7 @@ public class ShadowSQLiteDatabase {
         }
 
         return db;
-    }
 
-    private void setConnection(Connection connection) {
-        this.connection = connection;
     }
 
     @Implementation
@@ -277,5 +275,10 @@ public class ShadowSQLiteDatabase {
      */
     public Connection getConnection() {
         return connection;
+    }
+
+    private void setConnection(Connection connection) {
+        close();
+        this.connection = connection;
     }
 }

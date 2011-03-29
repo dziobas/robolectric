@@ -18,3 +18,4 @@ local.properties
 *.ipr
 *~
 \#*\#
+test.db
