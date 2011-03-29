@@ -1,11 +1,13 @@
 package com.xtremelabs.robolectric.tester.org.apache.http;
 
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.ws.http.HTTPException;
 
+import org.apache.http.Header;
 import org.apache.http.HttpException;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpRequest;
@@ -22,6 +24,10 @@ public class FakeHttpLayer {
 
     public void addPendingHttpResponse(int statusCode, String responseBody) {
         addPendingHttpResponse(new TestHttpResponse(statusCode, responseBody));
+    }
+
+    public void addPendingHttpResponseWithContentType(int statusCode, String responseBody, Header contentType) {
+        addPendingHttpResponse(new TestHttpResponse(statusCode, responseBody, contentType));
     }
 
     public void addPendingHttpResponse(HttpResponse httpResponse) {
@@ -81,7 +87,6 @@ public class FakeHttpLayer {
 
         return httpResponse;
     }
-
     public boolean hasPendingResponses() {
         return !pendingHttpResponses.isEmpty();
     }
@@ -100,6 +105,9 @@ public class FakeHttpLayer {
 
     public HttpRequestInfo getSentHttpRequestInfo(int index) {
         return httpRequestInfos.get(index);
+    }
+    public void clearHttpResponseRules() {
+        httpResponseRules.clear();
     }
 
     public static class RequestMatcherResponseRule implements HttpEntityStub.ResponseRule {

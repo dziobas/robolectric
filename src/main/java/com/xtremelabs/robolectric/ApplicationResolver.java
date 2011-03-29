@@ -7,6 +7,8 @@ import org.w3c.dom.Document;
 import android.app.Application;
 
 import com.xtremelabs.robolectric.internal.ClassNameResolver;
+import com.xtremelabs.robolectric.res.RobolectricPackageManager;
+import com.xtremelabs.robolectric.shadows.ShadowApplication;
 
 public class ApplicationResolver {
     RobolectricConfig config;
@@ -26,7 +28,9 @@ public class ApplicationResolver {
             application = new Application();
         }
 
-        shadowOf(application).setPackageName(packageName);
+        ShadowApplication shadowApplication = shadowOf(application);
+        shadowApplication.setPackageName(packageName);
+        shadowApplication.setPackageManager(new RobolectricPackageManager(application, config));
         return application;
     }
 

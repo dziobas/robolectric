@@ -31,6 +31,11 @@ public class ContextTest {
     }
 
     @Test
+    public void getCacheDir_shouldCreateDirectory() throws Exception {
+        assertTrue(context.getCacheDir().exists());
+    }
+
+    @Test
     public void getFilesDir_shouldCreateDirectory() throws Exception {
         assertTrue(context.getFilesDir().exists());
     }

@@ -1,10 +1,12 @@
 package com.xtremelabs.robolectric.tester.org.apache.http;
 
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpVersion;
 import org.apache.http.ProtocolVersion;
@@ -16,12 +18,18 @@ public class TestHttpResponse extends HttpResponseStub {
 
     private int statusCode;
     private String responseBody;
+    private Header contentType;
     private TestStatusLine statusLine = new TestStatusLine();
     private TestHttpEntity httpEntity = new TestHttpEntity();
 
     public TestHttpResponse(int statusCode, String responseBody) {
         this.statusCode = statusCode;
         this.responseBody = responseBody;
+    }
+
+    public TestHttpResponse(int statusCode, String responseBody, Header contentType) {
+        this(statusCode, responseBody);
+        this.contentType = contentType;
     }
 
     @Override public StatusLine getStatusLine() {
@@ -35,6 +43,18 @@ public class TestHttpResponse extends HttpResponseStub {
     public class TestHttpEntity extends HttpEntityStub {
         @Override public long getContentLength() {
             return responseBody.length();
+        }
+        
+        @Override public Header getContentType() {
+            return contentType;
+        }
+        
+        @Override public boolean isStreaming() {
+            return true;
+        }
+        
+        @Override public boolean isRepeatable() {
+            return true;
         }
 
         @Override public InputStream getContent() throws IOException, IllegalStateException {
