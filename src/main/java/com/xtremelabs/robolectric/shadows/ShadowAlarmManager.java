@@ -1,12 +1,13 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
 
 /**
  * Shadows the {@code android.app.AlarmManager} class.

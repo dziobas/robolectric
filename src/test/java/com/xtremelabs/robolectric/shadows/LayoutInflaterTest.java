@@ -1,15 +1,17 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.content.ContextWrapper;
-import android.view.LayoutInflater;
-import com.xtremelabs.robolectric.Robolectric;
-import com.xtremelabs.robolectric.WithTestDefaultsRunner;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
+import android.content.ContextWrapper;
+import android.view.LayoutInflater;
+
+import com.xtremelabs.robolectric.Robolectric;
+import com.xtremelabs.robolectric.WithTestDefaultsRunner;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class LayoutInflaterTest {

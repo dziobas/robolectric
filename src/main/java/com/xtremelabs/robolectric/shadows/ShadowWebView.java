@@ -1,15 +1,16 @@
 package com.xtremelabs.robolectric.shadows;
 
+import java.util.HashMap;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
-
-import java.util.HashMap;
 
 @SuppressWarnings({"UnusedDeclaration"})
 @Implements(WebView.class)

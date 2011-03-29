@@ -17,6 +17,7 @@
 package com.xtremelabs.robolectric.shadows;
 
 import android.util.FloatMath;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 

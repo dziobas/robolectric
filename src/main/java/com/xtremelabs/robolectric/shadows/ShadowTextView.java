@@ -1,18 +1,19 @@
 package com.xtremelabs.robolectric.shadows;
 
+import static android.view.View.VISIBLE;
+import static com.xtremelabs.robolectric.Robolectric.shadowOf_;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import android.graphics.drawable.Drawable;
 import android.text.style.URLSpan;
 import android.text.util.Linkify;
 import android.view.KeyEvent;
 import android.widget.TextView;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static android.view.View.VISIBLE;
-import static com.xtremelabs.robolectric.Robolectric.shadowOf_;
 
 @SuppressWarnings({"UnusedDeclaration"})
 @Implements(TextView.class)

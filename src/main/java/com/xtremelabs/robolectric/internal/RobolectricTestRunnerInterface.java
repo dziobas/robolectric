@@ -1,8 +1,8 @@
 package com.xtremelabs.robolectric.internal;
 
-import com.xtremelabs.robolectric.RobolectricConfig;
-
 import java.lang.reflect.Method;
+
+import com.xtremelabs.robolectric.RobolectricConfig;
 
 public interface RobolectricTestRunnerInterface {
     Object createTest() throws Exception;

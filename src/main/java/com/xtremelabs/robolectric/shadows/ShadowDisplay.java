@@ -4,6 +4,7 @@ import android.graphics.PixelFormat;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Surface;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 

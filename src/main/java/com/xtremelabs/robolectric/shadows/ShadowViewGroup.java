@@ -1,15 +1,16 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
 
 /**
  * Shadow for {@code ViewGroup} that simulates its implementation

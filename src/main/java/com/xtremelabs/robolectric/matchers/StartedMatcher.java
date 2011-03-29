@@ -1,14 +1,16 @@
 package com.xtremelabs.robolectric.matchers;
 
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+
+import org.hamcrest.Description;
+import org.junit.internal.matchers.TypeSafeMatcher;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
-import com.xtremelabs.robolectric.shadows.ShadowIntent;
-import org.hamcrest.Description;
-import org.junit.internal.matchers.TypeSafeMatcher;
 
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import com.xtremelabs.robolectric.shadows.ShadowIntent;
 
 public class StartedMatcher extends TypeSafeMatcher<Context> {
     private final Intent expectedIntent;

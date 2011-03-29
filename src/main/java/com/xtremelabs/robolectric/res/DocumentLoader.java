@@ -1,11 +1,12 @@
 package com.xtremelabs.robolectric.res;
 
-import org.w3c.dom.Document;
+import java.io.File;
+import java.io.FileFilter;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
-import java.io.FileFilter;
+
+import org.w3c.dom.Document;
 
 public class DocumentLoader {
     private final XmlLoader[] xmlLoaders;

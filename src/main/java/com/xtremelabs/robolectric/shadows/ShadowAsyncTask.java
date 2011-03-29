@@ -2,6 +2,7 @@ package com.xtremelabs.robolectric.shadows;
 
 import android.os.AsyncTask;
 import android.os.ShadowAsyncTaskBridge;
+
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;

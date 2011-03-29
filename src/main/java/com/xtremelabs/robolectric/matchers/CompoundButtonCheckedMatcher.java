@@ -1,10 +1,11 @@
 package com.xtremelabs.robolectric.matchers;
 
-import android.widget.CompoundButton;
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
+
+import android.widget.CompoundButton;
 
 public class CompoundButtonCheckedMatcher<T extends CompoundButton> extends TypeSafeMatcher<T> {
     private boolean expected;

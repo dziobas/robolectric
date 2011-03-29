@@ -1,8 +1,9 @@
 package com.xtremelabs.robolectric.bytecode;
 
-import android.net.Uri;
-import com.xtremelabs.robolectric.internal.DoNotInstrument;
-import com.xtremelabs.robolectric.internal.Instrument;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javassist.CannotCompileException;
 import javassist.ClassMap;
 import javassist.ClassPool;
@@ -15,10 +16,10 @@ import javassist.CtNewMethod;
 import javassist.Modifier;
 import javassist.NotFoundException;
 import javassist.Translator;
+import android.net.Uri;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import com.xtremelabs.robolectric.internal.DoNotInstrument;
+import com.xtremelabs.robolectric.internal.Instrument;
 
 @SuppressWarnings({"UnusedDeclaration"})
 public class AndroidTranslator implements Translator {

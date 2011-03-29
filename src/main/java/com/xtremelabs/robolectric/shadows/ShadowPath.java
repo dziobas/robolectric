@@ -1,11 +1,12 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.graphics.Path;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import android.graphics.Path;
+
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
 
 /**
  * Shadow of {@code Path} that contains a simplified implementation of the original class that only supports

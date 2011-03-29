@@ -1,11 +1,11 @@
 package com.xtremelabs.robolectric.internal;
 
-import android.app.Application;
-import android.content.Context;
-import com.xtremelabs.robolectric.shadows.ShadowApplication;
-
 import static com.xtremelabs.robolectric.Robolectric.newInstanceOf;
 import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import android.app.Application;
+import android.content.Context;
+
+import com.xtremelabs.robolectric.shadows.ShadowApplication;
 
 public abstract class AppSingletonizer<T> {
     private Class<T> clazz;

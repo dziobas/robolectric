@@ -1,12 +1,13 @@
 package com.xtremelabs.robolectric.res;
 
-import com.xtremelabs.robolectric.R;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
+
 import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import com.xtremelabs.robolectric.R;
 
 public class ResourceExtractorTest {
     private ResourceExtractor resourceExtractor;

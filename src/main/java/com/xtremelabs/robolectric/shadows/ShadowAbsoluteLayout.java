@@ -1,6 +1,7 @@
 package com.xtremelabs.robolectric.shadows;
 
 import android.widget.AbsoluteLayout;
+
 import com.xtremelabs.robolectric.internal.Implements;
 
 @SuppressWarnings({"UnusedDeclaration"})

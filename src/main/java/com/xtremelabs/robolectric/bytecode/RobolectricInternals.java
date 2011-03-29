@@ -1,11 +1,11 @@
 package com.xtremelabs.robolectric.bytecode;
 
-import com.xtremelabs.robolectric.internal.Implements;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.xtremelabs.robolectric.internal.Implements;
 
 @SuppressWarnings({"UnusedDeclaration"})
 public class RobolectricInternals {

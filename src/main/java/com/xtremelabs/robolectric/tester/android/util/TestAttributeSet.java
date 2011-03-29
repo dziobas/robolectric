@@ -1,12 +1,13 @@
 package com.xtremelabs.robolectric.tester.android.util;
 
-import android.util.AttributeSet;
-import android.view.View;
-import com.xtremelabs.robolectric.res.AttrResourceLoader;
-import com.xtremelabs.robolectric.res.ResourceExtractor;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import android.util.AttributeSet;
+import android.view.View;
+
+import com.xtremelabs.robolectric.res.AttrResourceLoader;
+import com.xtremelabs.robolectric.res.ResourceExtractor;
 
 public class TestAttributeSet implements AttributeSet {
     Map<String, String> attributes = new HashMap<String, String>();

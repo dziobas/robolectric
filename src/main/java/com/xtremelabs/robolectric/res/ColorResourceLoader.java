@@ -1,10 +1,11 @@
 package com.xtremelabs.robolectric.res;
 
-import android.graphics.Color;
-import org.w3c.dom.Node;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import org.w3c.dom.Node;
+
+import android.graphics.Color;
 
 public class ColorResourceLoader extends XpathResourceXmlLoader implements ResourceValueConverter {
     private ResourceReferenceResolver<Integer> colorResolver = new ResourceReferenceResolver<Integer>("color");

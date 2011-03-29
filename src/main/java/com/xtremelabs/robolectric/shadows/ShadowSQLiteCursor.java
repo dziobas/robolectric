@@ -1,17 +1,16 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.database.sqlite.SQLiteCursor;
-
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Types;
-
 import java.util.LinkedList;
 import java.util.ListIterator;
+
+import android.database.sqlite.SQLiteCursor;
+
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
 
 
 /**
@@ -130,7 +129,7 @@ public class ShadowSQLiteCursor extends ShadowAbstractCursor {
     @Implementation
     public long getLong(int columnIndex) {
         try {
-            return (Long) current[columnIndex];
+            return (long)((int)(Integer)current[columnIndex]);
         } catch(Exception e) {
             throw new RuntimeException("Exception in getLong", e);
         }

@@ -1,10 +1,12 @@
 package com.xtremelabs.robolectric.internal;
 
-import android.app.Application;
-import com.xtremelabs.robolectric.TestApplication;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import android.app.Application;
+
+import com.xtremelabs.robolectric.TestApplication;
 
 public class ClassNameResolverTest {
     @Test

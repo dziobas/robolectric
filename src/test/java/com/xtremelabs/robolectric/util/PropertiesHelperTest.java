@@ -1,10 +1,10 @@
 package com.xtremelabs.robolectric.util;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Properties;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 public class PropertiesHelperTest {
     @Test

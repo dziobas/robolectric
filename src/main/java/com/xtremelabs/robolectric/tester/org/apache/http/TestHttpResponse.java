@@ -1,15 +1,16 @@
 package com.xtremelabs.robolectric.tester.org.apache.http;
 
-import com.xtremelabs.robolectric.shadows.StatusLineStub;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpVersion;
 import org.apache.http.ProtocolVersion;
 import org.apache.http.StatusLine;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import com.xtremelabs.robolectric.shadows.StatusLineStub;
 
 public class TestHttpResponse extends HttpResponseStub {
 

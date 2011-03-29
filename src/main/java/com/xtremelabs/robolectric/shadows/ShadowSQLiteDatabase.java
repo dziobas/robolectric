@@ -1,17 +1,7 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteCursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteQueryBuilder;
 import static com.xtremelabs.robolectric.Robolectric.newInstanceOf;
 import static com.xtremelabs.robolectric.Robolectric.shadowOf;
-
-import com.xtremelabs.robolectric.Robolectric;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-import com.xtremelabs.robolectric.util.SQLite.SQLStringAndBindings;
 import static com.xtremelabs.robolectric.util.SQLite.buildDeleteString;
 import static com.xtremelabs.robolectric.util.SQLite.buildInsertString;
 import static com.xtremelabs.robolectric.util.SQLite.buildUpdateString;
@@ -23,8 +13,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import java.util.Iterator;
+
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteCursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
+
+import com.xtremelabs.robolectric.Robolectric;
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
+import com.xtremelabs.robolectric.util.SQLite.SQLStringAndBindings;
 
 
 /**
@@ -38,24 +38,26 @@ public class ShadowSQLiteDatabase {
 
     @Implementation
     public static SQLiteDatabase openDatabase(String path, SQLiteDatabase.CursorFactory factory, int flags) {
-    	SQLiteDatabase db=null;
-    	try {
+        SQLiteDatabase db = null;
+
+        try {
             Class.forName("org.sqlite.JDBC").newInstance();
+
             Connection connection = DriverManager.getConnection("jdbc:sqlite:test.db");
-             db= newInstanceOf(SQLiteDatabase.class);
+            db = newInstanceOf(SQLiteDatabase.class);
             Robolectric.shadowOf(db).setConnection(connection);
         } catch(Exception e) {
             throw new RuntimeException("SQL exception in openDatabase", e);
         }
 
-		return db;
+        return db;
     }
 
     private void setConnection(Connection connection) {
-		this.connection = connection;		
-	}
+        this.connection = connection;
+    }
 
-	@Implementation
+    @Implementation
     public long insert(String table, String nullColumnHack, ContentValues values) {
         SQLStringAndBindings sqlInsertString = buildInsertString(table, values);
 
@@ -72,11 +74,35 @@ public class ShadowSQLiteDatabase {
 
             ResultSet resultSet = statement.getGeneratedKeys();
 
-            if(resultSet.first()) {
+            if(resultSet.next()) {
                 return resultSet.getLong(1);
             }
         } catch(SQLException e) {
             throw new RuntimeException("SQL exception in insert", e);
+        }
+
+        return -1;
+    }
+
+    @Implementation
+    public long insertOrThrow(String table, String nullColumnHack, ContentValues values)
+                       throws SQLException {
+        SQLStringAndBindings sqlInsertString = buildInsertString(table, values);
+
+        PreparedStatement    statement       = connection.prepareStatement(sqlInsertString.sql, Statement.RETURN_GENERATED_KEYS);
+        Iterator<Object>     columns         = sqlInsertString.columnValues.iterator();
+        int                  i               = 1;
+
+        while(columns.hasNext()) {
+            statement.setObject(i++, columns.next());
+        }
+
+        statement.executeUpdate();
+
+        ResultSet resultSet = statement.getGeneratedKeys();
+
+        if(resultSet.next()) {
+            return resultSet.getLong(1);
         }
 
         return -1;

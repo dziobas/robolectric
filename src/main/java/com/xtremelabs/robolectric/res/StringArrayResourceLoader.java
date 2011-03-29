@@ -1,16 +1,17 @@
 package com.xtremelabs.robolectric.res;
 
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class StringArrayResourceLoader extends XpathResourceXmlLoader {
     Map<String, String[]> stringArrayValues = new HashMap<String, String[]>();

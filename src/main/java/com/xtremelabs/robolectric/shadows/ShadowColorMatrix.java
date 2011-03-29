@@ -1,14 +1,15 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.graphics.ColorMatrix;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-import com.xtremelabs.robolectric.util.Join;
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import android.graphics.ColorMatrix;
+
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
+import com.xtremelabs.robolectric.util.Join;
 
 @SuppressWarnings({"UnusedDeclaration"})
 @Implements(ColorMatrix.class)

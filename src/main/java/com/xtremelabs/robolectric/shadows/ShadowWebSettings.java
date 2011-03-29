@@ -1,6 +1,7 @@
 package com.xtremelabs.robolectric.shadows;
 
 import android.webkit.WebSettings;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 

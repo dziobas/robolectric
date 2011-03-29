@@ -1,6 +1,7 @@
 package com.xtremelabs.robolectric.shadows;
 
 import android.graphics.drawable.Drawable;
+
 import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.OverlayItem;
 import com.xtremelabs.robolectric.internal.Implementation;

@@ -1,18 +1,23 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewStub;
-import android.widget.LinearLayout;
-import com.xtremelabs.robolectric.R;
-import com.xtremelabs.robolectric.Robolectric;
-import com.xtremelabs.robolectric.WithTestDefaultsRunner;
-import com.xtremelabs.robolectric.tester.android.util.TestAttributeSet;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.*;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
+
+import com.xtremelabs.robolectric.R;
+import com.xtremelabs.robolectric.Robolectric;
+import com.xtremelabs.robolectric.WithTestDefaultsRunner;
+import com.xtremelabs.robolectric.tester.android.util.TestAttributeSet;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class ViewStubTest {

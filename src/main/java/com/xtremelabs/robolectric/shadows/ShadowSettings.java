@@ -1,14 +1,15 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.content.ContentResolver;
-import android.provider.Settings;
-import com.xtremelabs.robolectric.Robolectric;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
+
+import android.content.ContentResolver;
+import android.provider.Settings;
+
+import com.xtremelabs.robolectric.Robolectric;
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
 
 /**
  * Shadow of {@code Settings} that allows the status of various System and Secure settings to be simulated, changed and

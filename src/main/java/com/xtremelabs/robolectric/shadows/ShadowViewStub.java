@@ -1,17 +1,18 @@
 package com.xtremelabs.robolectric.shadows;
 
+import java.lang.ref.WeakReference;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.ViewStub;
+
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 import com.xtremelabs.robolectric.internal.RealObject;
 import com.xtremelabs.robolectric.res.ResourceExtractor;
-
-import java.lang.ref.WeakReference;
 
 @SuppressWarnings({"UnusedDeclaration"})
 @Implements(ViewStub.class)

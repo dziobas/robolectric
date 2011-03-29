@@ -1,7 +1,5 @@
 package com.xtremelabs.robolectric.util;
 
-import com.xtremelabs.robolectric.Robolectric;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -11,6 +9,8 @@ import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+
+import com.xtremelabs.robolectric.Robolectric;
 
 public class RobolectricBackgroundExecutorService implements ExecutorService {
     @Override public void shutdown() {

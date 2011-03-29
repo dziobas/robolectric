@@ -1,11 +1,11 @@
 package com.xtremelabs.robolectric.util;
 
-import org.junit.Test;
+import static junit.framework.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-import static junit.framework.Assert.assertEquals;
+import org.junit.Test;
 
 public class StringsTest {
     @Test

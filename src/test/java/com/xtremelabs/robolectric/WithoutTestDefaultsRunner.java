@@ -1,8 +1,8 @@
 package com.xtremelabs.robolectric;
 
-import org.junit.runners.model.InitializationError;
-
 import java.lang.reflect.Method;
+
+import org.junit.runners.model.InitializationError;
 
 public class WithoutTestDefaultsRunner extends RobolectricTestRunner {
     public WithoutTestDefaultsRunner(Class<?> testClass) throws InitializationError {

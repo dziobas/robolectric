@@ -3,6 +3,7 @@ package com.xtremelabs.robolectric.util;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+
 import com.xtremelabs.robolectric.R;
 
 public class CustomView extends LinearLayout {

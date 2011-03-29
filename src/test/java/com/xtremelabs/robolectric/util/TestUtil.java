@@ -1,11 +1,11 @@
 package com.xtremelabs.robolectric.util;
 
-import com.xtremelabs.robolectric.RobolectricConfig;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.util.Collection;
 
-import static org.junit.Assert.assertTrue;
+import com.xtremelabs.robolectric.RobolectricConfig;
 
 public abstract class TestUtil {
     public static File testDirLocation;

@@ -1,19 +1,26 @@
 package com.xtremelabs.robolectric.util;
 
 
-import android.content.ContentValues;
-import com.xtremelabs.robolectric.WithTestDefaultsRunner;
-import com.xtremelabs.robolectric.util.SQLite.*;
+import static com.xtremelabs.robolectric.util.SQLite.buildColumnAssignmentsClause;
+import static com.xtremelabs.robolectric.util.SQLite.buildColumnValuesClause;
+import static com.xtremelabs.robolectric.util.SQLite.buildDeleteString;
+import static com.xtremelabs.robolectric.util.SQLite.buildInsertString;
+import static com.xtremelabs.robolectric.util.SQLite.buildUpdateString;
+import static com.xtremelabs.robolectric.util.SQLite.buildWhereClause;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.junit.Assert.assertThat;
+
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.List;
+import android.content.ContentValues;
 
-import static com.xtremelabs.robolectric.util.SQLite.*;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.junit.Assert.assertThat;
+import com.xtremelabs.robolectric.WithTestDefaultsRunner;
+import com.xtremelabs.robolectric.util.SQLite.SQLStringAndBindings;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class SQLiteTest {

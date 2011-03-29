@@ -1,10 +1,11 @@
 package com.xtremelabs.robolectric.matchers;
 
-import android.widget.TextView;
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.junit.internal.matchers.TypeSafeMatcher;
+
+import android.widget.TextView;
 
 public class TextViewHasTextMatcher<T extends TextView> extends TypeSafeMatcher<T> {
     private String expected;
