@@ -1,22 +1,27 @@
 package com.xtremelabs.robolectric.bytecode;
 
-import com.xtremelabs.robolectric.Robolectric;
-import com.xtremelabs.robolectric.WithoutTestDefaultsRunner;
-import com.xtremelabs.robolectric.internal.Implements;
-import com.xtremelabs.robolectric.internal.Instrument;
-import com.xtremelabs.robolectric.internal.RealObject;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.core.StringContains.containsString;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.core.StringContains.containsString;
-import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import com.xtremelabs.robolectric.Robolectric;
+import com.xtremelabs.robolectric.WithoutTestDefaultsRunner;
+import com.xtremelabs.robolectric.internal.Implements;
+import com.xtremelabs.robolectric.internal.Instrument;
+import com.xtremelabs.robolectric.internal.RealObject;
 
 @RunWith(WithoutTestDefaultsRunner.class)
 public class ShadowWranglerTest {

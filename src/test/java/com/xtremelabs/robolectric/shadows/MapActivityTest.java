@@ -1,10 +1,12 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.os.Bundle;
-import com.google.android.maps.MapActivity;
-import com.xtremelabs.robolectric.WithTestDefaultsRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import android.os.Bundle;
+
+import com.google.android.maps.MapActivity;
+import com.xtremelabs.robolectric.WithTestDefaultsRunner;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class MapActivityTest {

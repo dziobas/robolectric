@@ -1,19 +1,21 @@
 package com.xtremelabs.robolectric.res;
 
-import android.content.Context;
-import android.view.Menu;
-import android.view.MenuItem;
-import com.xtremelabs.robolectric.tester.android.util.TestAttributeSet;
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import android.content.Context;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.xtremelabs.robolectric.tester.android.util.TestAttributeSet;
 
 public class MenuLoader extends XmlLoader {
     private Map<String, MenuNode> menuNodesByMenuName = new HashMap<String, MenuNode>();

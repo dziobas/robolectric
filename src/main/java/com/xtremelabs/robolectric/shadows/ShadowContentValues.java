@@ -16,17 +16,18 @@
 
 package com.xtremelabs.robolectric.shadows;
 
-import android.content.ContentValues;
-import android.util.Log;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import static com.xtremelabs.robolectric.Robolectric.shadowOf_;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
-import static com.xtremelabs.robolectric.Robolectric.shadowOf_;
+import android.content.ContentValues;
+import android.util.Log;
+
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
 
 /**
  * Shadows the {@code android.content.ContentValues} class.

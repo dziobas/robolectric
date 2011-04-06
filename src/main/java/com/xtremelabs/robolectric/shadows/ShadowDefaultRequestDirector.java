@@ -1,10 +1,7 @@
 package com.xtremelabs.robolectric.shadows;
 
-import com.xtremelabs.robolectric.Robolectric;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-import com.xtremelabs.robolectric.internal.RealObject;
-import com.xtremelabs.robolectric.tester.org.apache.http.HttpRequestInfo;
+import java.io.IOException;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.http.ConnectionReuseStrategy;
@@ -25,7 +22,11 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.HttpRequestExecutor;
 
-import java.io.IOException;
+import com.xtremelabs.robolectric.Robolectric;
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
+import com.xtremelabs.robolectric.internal.RealObject;
+import com.xtremelabs.robolectric.tester.org.apache.http.HttpRequestInfo;
 
 @SuppressWarnings({"UnusedDeclaration"})
 @Implements(DefaultRequestDirector.class)

@@ -1,18 +1,19 @@
 package com.xtremelabs.robolectric.bytecode;
 
-import com.xtremelabs.robolectric.Robolectric;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-import com.xtremelabs.robolectric.util.Join;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
 import java.lang.reflect.Member;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.xtremelabs.robolectric.Robolectric;
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
+import com.xtremelabs.robolectric.util.Join;
 
 public class RobolectricWiringTest {
     private List<String> mismatches;

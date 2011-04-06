@@ -1,12 +1,13 @@
 package com.xtremelabs.robolectric.res;
 
-import com.xtremelabs.robolectric.R;
-import org.junit.Before;
-import org.junit.Test;
-
 import static com.xtremelabs.robolectric.util.TestUtil.resourceFile;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.xtremelabs.robolectric.R;
 
 public class StringResourceLoaderTest {
     private StringResourceLoader stringResourceLoader;

@@ -2,6 +2,7 @@ package com.xtremelabs.robolectric.shadows;
 
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 

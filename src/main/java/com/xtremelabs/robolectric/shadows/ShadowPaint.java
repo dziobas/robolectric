@@ -3,6 +3,7 @@ package com.xtremelabs.robolectric.shadows;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.Shader;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 import com.xtremelabs.robolectric.internal.RealObject;

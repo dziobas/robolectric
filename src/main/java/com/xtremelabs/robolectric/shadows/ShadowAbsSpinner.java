@@ -2,6 +2,7 @@ package com.xtremelabs.robolectric.shadows;
 
 import android.widget.AbsSpinner;
 import android.widget.SpinnerAdapter;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 

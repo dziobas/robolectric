@@ -1,13 +1,14 @@
 package com.xtremelabs.robolectric.res;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContextWrapper;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
+
 import com.xtremelabs.robolectric.RobolectricConfig;
 import com.xtremelabs.robolectric.tester.android.content.pm.StubPackageManager;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class RobolectricPackageManager extends StubPackageManager {
     public PackageInfo packageInfo;

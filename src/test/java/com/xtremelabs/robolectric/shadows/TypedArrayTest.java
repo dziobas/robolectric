@@ -1,13 +1,15 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.app.Activity;
-import android.content.Context;
-import com.xtremelabs.robolectric.WithTestDefaultsRunner;
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.assertNotNull;
+import android.app.Activity;
+import android.content.Context;
+
+import com.xtremelabs.robolectric.WithTestDefaultsRunner;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class TypedArrayTest {

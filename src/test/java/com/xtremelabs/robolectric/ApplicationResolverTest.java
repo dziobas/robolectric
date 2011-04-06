@@ -1,11 +1,12 @@
 package com.xtremelabs.robolectric;
 
-import android.app.Application;
+import static com.xtremelabs.robolectric.util.TestUtil.newConfig;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static com.xtremelabs.robolectric.util.TestUtil.newConfig;
-import static org.junit.Assert.assertEquals;
+import android.app.Application;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class ApplicationResolverTest {

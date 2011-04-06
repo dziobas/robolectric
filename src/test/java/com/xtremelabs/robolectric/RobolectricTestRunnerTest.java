@@ -1,14 +1,15 @@
 package com.xtremelabs.robolectric;
 
-import android.app.Application;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.model.InitializationError;
-
 import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.model.InitializationError;
+
+import android.app.Application;
 
 @RunWith(RobolectricTestRunnerTest.RunnerForTesting.class)
 public class RobolectricTestRunnerTest {

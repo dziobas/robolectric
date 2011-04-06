@@ -1,11 +1,6 @@
 package com.xtremelabs.robolectric.res;
 
-import android.R;
-import android.content.Context;
-import android.view.Menu;
-import android.view.View;
-import android.view.ViewGroup;
-import com.xtremelabs.robolectric.util.PropertiesHelper;
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,7 +13,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import android.R;
+import android.content.Context;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.xtremelabs.robolectric.util.PropertiesHelper;
 
 public class ResourceLoader {
     private static final FileFilter MENU_DIR_FILE_FILTER = new FileFilter() {

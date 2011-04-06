@@ -1,12 +1,13 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
 
 @SuppressWarnings({"UnusedDeclaration"})
 @Implements(NotificationManager.class)

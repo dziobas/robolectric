@@ -1,12 +1,14 @@
 package com.xtremelabs.robolectric;
 
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+
+import org.w3c.dom.Document;
+
 import android.app.Application;
+
 import com.xtremelabs.robolectric.internal.ClassNameResolver;
 import com.xtremelabs.robolectric.res.RobolectricPackageManager;
 import com.xtremelabs.robolectric.shadows.ShadowApplication;
-import org.w3c.dom.Document;
-
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 
 public class ApplicationResolver {
     RobolectricConfig config;

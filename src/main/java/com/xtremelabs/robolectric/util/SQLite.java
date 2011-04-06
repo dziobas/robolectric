@@ -1,11 +1,11 @@
 package com.xtremelabs.robolectric.util;
 
-import android.content.ContentValues;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
+
+import android.content.ContentValues;
 
 /**
  * SQL utility methods to support the database-related shadows, such as

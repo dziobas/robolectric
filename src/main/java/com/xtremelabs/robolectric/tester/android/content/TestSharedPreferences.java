@@ -1,11 +1,11 @@
 package com.xtremelabs.robolectric.tester.android.content;
 
-import android.content.SharedPreferences;
-
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
+
+import android.content.SharedPreferences;
 
 public class TestSharedPreferences implements SharedPreferences {
 

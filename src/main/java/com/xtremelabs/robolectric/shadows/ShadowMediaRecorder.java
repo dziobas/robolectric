@@ -3,6 +3,7 @@ package com.xtremelabs.robolectric.shadows;
 import android.hardware.Camera;
 import android.media.MediaRecorder;
 import android.view.Surface;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 

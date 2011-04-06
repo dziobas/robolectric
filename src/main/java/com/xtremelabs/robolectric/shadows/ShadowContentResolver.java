@@ -1,12 +1,13 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.content.ContentResolver;
-import android.net.Uri;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-
 import java.io.IOException;
 import java.io.InputStream;
+
+import android.content.ContentResolver;
+import android.net.Uri;
+
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
 
 @SuppressWarnings({"UnusedDeclaration"})
 @Implements(ContentResolver.class)

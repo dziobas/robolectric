@@ -1,17 +1,19 @@
 package com.xtremelabs.robolectric.shadows;
 
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.xtremelabs.robolectric.WithTestDefaultsRunner;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
-import static org.junit.Assert.assertEquals;
+import com.xtremelabs.robolectric.WithTestDefaultsRunner;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class ViewInnerTextTest {

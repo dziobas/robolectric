@@ -1,11 +1,11 @@
 package com.xtremelabs.robolectric.shadows;
 
+import static com.xtremelabs.robolectric.Robolectric.shadowOf_;
 import android.graphics.Point;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 import com.xtremelabs.robolectric.internal.RealObject;
-
-import static com.xtremelabs.robolectric.Robolectric.shadowOf_;
 
 /**
  * Shadow implementation of {@code Point}

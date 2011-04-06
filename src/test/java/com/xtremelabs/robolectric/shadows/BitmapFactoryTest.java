@@ -1,19 +1,21 @@
 package com.xtremelabs.robolectric.shadows;
 
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import static org.junit.Assert.assertEquals;
+
+import java.io.InputStream;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
+
 import com.xtremelabs.robolectric.R;
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.WithTestDefaultsRunner;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import java.io.InputStream;
-
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
-import static org.junit.Assert.assertEquals;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class BitmapFactoryTest {

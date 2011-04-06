@@ -1,15 +1,17 @@
 package com.xtremelabs.robolectric.res;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import com.xtremelabs.robolectric.R;
-import com.xtremelabs.robolectric.util.CustomView;
-import org.junit.Before;
-import org.junit.Test;
-
 import static com.xtremelabs.robolectric.util.TestUtil.resourceFile;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import android.content.Context;
+import android.util.AttributeSet;
+
+import com.xtremelabs.robolectric.R;
+import com.xtremelabs.robolectric.util.CustomView;
 
 public class AttrResourceLoaderTest {
     private AttrResourceLoader attrResourceLoader;

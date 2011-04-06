@@ -1,8 +1,8 @@
 package com.xtremelabs.robolectric.res;
 
-import org.w3c.dom.Document;
-
 import java.io.File;
+
+import org.w3c.dom.Document;
 
 public abstract class XmlLoader {
     protected ResourceExtractor resourceExtractor;

@@ -1,10 +1,10 @@
 package com.xtremelabs.robolectric.shadows;
 
+import static com.xtremelabs.robolectric.Robolectric.shadowOf_;
 import android.location.Location;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
-
-import static com.xtremelabs.robolectric.Robolectric.shadowOf_;
 
 /**
  * Shadow of {@code Location} that treats it primarily as a data-holder

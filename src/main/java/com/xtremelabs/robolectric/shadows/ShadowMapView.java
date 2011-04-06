@@ -1,9 +1,15 @@
 package com.xtremelabs.robolectric.shadows;
 
+import static com.xtremelabs.robolectric.RobolectricForMaps.shadowOf;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
 import android.graphics.Point;
 import android.view.MotionEvent;
 import android.widget.ZoomButtonsController;
+
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
@@ -12,11 +18,6 @@ import com.google.android.maps.Projection;
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.xtremelabs.robolectric.RobolectricForMaps.shadowOf;
 
 /**
  * Shadow of {@code MapView} that simulates the internal state of a {@code MapView}. Supports {@code Projection}s,

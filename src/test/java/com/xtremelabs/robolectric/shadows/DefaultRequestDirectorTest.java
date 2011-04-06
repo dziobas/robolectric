@@ -1,12 +1,19 @@
 package com.xtremelabs.robolectric.shadows;
 
-import com.xtremelabs.robolectric.Robolectric;
-import com.xtremelabs.robolectric.WithTestDefaultsRunner;
-import com.xtremelabs.robolectric.tester.org.apache.http.FakeHttpLayer;
-import com.xtremelabs.robolectric.tester.org.apache.http.RequestMatcher;
-import com.xtremelabs.robolectric.tester.org.apache.http.TestHttpResponse;
-import com.xtremelabs.robolectric.util.Strings;
+
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
+
+import java.net.URI;
+
 import junit.framework.Assert;
+
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -23,11 +30,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.net.URI;
-
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
-import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.*;
+import com.xtremelabs.robolectric.Robolectric;
+import com.xtremelabs.robolectric.WithTestDefaultsRunner;
+import com.xtremelabs.robolectric.tester.org.apache.http.FakeHttpLayer;
+import com.xtremelabs.robolectric.tester.org.apache.http.RequestMatcher;
+import com.xtremelabs.robolectric.tester.org.apache.http.TestHttpResponse;
+import com.xtremelabs.robolectric.util.Strings;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class DefaultRequestDirectorTest {

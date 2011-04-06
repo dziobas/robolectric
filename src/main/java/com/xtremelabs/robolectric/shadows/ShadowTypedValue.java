@@ -2,6 +2,7 @@ package com.xtremelabs.robolectric.shadows;
 
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 

@@ -1,11 +1,13 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.os.Looper;
-import com.xtremelabs.robolectric.WithTestDefaultsRunner;
+import static org.junit.Assert.assertSame;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.assertSame;
+import android.os.Looper;
+
+import com.xtremelabs.robolectric.WithTestDefaultsRunner;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class LooperTest {

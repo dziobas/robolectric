@@ -2,20 +2,21 @@
 
 package com.xtremelabs.robolectric.shadows;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import com.xtremelabs.robolectric.Robolectric;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-import com.xtremelabs.robolectric.res.ResourceLoader;
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+
+import com.xtremelabs.robolectric.Robolectric;
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
+import com.xtremelabs.robolectric.res.ResourceLoader;
 
 @SuppressWarnings( { "UnusedDeclaration" })
 @Implements(ArrayAdapter.class)

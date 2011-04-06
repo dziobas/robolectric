@@ -1,6 +1,7 @@
 package com.xtremelabs.robolectric.shadows;
 
 import android.net.wifi.WifiManager;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 

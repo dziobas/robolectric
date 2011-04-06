@@ -1,5 +1,27 @@
 package com.xtremelabs.robolectric.bytecode;
 
+import static com.xtremelabs.robolectric.Robolectric.directlyOn;
+import static com.xtremelabs.robolectric.RobolectricForMaps.shadowOf;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.CoreMatchers.sameInstance;
+import static org.hamcrest.core.StringContains.containsString;
+import static org.hamcrest.core.StringStartsWith.startsWith;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+
+import java.lang.reflect.Constructor;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
 import android.accounts.AccountManager;
 import android.content.Context;
 import android.graphics.Paint;
@@ -7,6 +29,7 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
 import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.OverlayItem;
 import com.xtremelabs.robolectric.Robolectric;
@@ -15,18 +38,6 @@ import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 import com.xtremelabs.robolectric.internal.Instrument;
 import com.xtremelabs.robolectric.shadows.ShadowItemizedOverlay;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import java.lang.reflect.Constructor;
-
-import static com.xtremelabs.robolectric.Robolectric.directlyOn;
-import static com.xtremelabs.robolectric.RobolectricForMaps.shadowOf;
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.core.StringContains.containsString;
-import static org.hamcrest.core.StringStartsWith.startsWith;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class AndroidTranslatorTest {

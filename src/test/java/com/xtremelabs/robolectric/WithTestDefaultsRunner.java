@@ -1,8 +1,8 @@
 package com.xtremelabs.robolectric;
 
-import org.junit.runners.model.InitializationError;
-
 import static com.xtremelabs.robolectric.util.TestUtil.resourceFile;
+
+import org.junit.runners.model.InitializationError;
 
 public class WithTestDefaultsRunner extends RobolectricTestRunner {
 

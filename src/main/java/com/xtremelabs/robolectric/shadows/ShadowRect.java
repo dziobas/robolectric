@@ -1,11 +1,11 @@
 package com.xtremelabs.robolectric.shadows;
 
+import static com.xtremelabs.robolectric.Robolectric.shadowOf_;
 import android.graphics.Rect;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 import com.xtremelabs.robolectric.internal.RealObject;
-
-import static com.xtremelabs.robolectric.Robolectric.shadowOf_;
 
 @SuppressWarnings({"UnusedDeclaration"})
 @Implements(Rect.class)

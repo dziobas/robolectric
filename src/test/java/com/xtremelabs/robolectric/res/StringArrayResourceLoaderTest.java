@@ -1,15 +1,16 @@
 package com.xtremelabs.robolectric.res;
 
-import com.xtremelabs.robolectric.R;
-import org.junit.Before;
-import org.junit.Test;
+import static com.xtremelabs.robolectric.util.TestUtil.resourceFile;
+import static org.hamcrest.core.IsCollectionContaining.hasItems;
+import static org.junit.Assert.assertThat;
 
 import java.io.File;
 import java.util.Arrays;
 
-import static com.xtremelabs.robolectric.util.TestUtil.resourceFile;
-import static org.hamcrest.core.IsCollectionContaining.hasItems;
-import static org.junit.Assert.assertThat;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.xtremelabs.robolectric.R;
 
 public class StringArrayResourceLoaderTest {
     private StringArrayResourceLoader stringArrayResourceLoader;

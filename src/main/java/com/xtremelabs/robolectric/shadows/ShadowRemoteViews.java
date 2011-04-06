@@ -1,5 +1,8 @@
 package com.xtremelabs.robolectric.shadows;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -7,12 +10,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RemoteViews;
 import android.widget.TextView;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 import com.xtremelabs.robolectric.res.ResourceLoader;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Shadow for {@code RemoteViews} that simulates its implementation. Supports pending intents for events, changing

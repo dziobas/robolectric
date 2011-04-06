@@ -1,5 +1,11 @@
 package com.xtremelabs.robolectric.shadows;
 
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Map;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -8,16 +14,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 import com.xtremelabs.robolectric.internal.RealObject;
-
-import java.io.PrintStream;
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 
 /**
  * Shadow implementation of {@code View} that simulates the behavior of this class. Supports listeners, focusability

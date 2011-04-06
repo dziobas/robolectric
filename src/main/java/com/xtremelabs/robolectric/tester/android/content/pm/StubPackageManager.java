@@ -1,5 +1,7 @@
 package com.xtremelabs.robolectric.tester.android.content.pm;
 
+import java.util.List;
+
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -17,8 +19,6 @@ import android.content.pm.ServiceInfo;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.drawable.Drawable;
-
-import java.util.List;
 
 public class StubPackageManager extends PackageManager {
     @Override

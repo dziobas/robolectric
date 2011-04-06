@@ -1,15 +1,16 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.graphics.Bitmap;
-import com.xtremelabs.robolectric.Robolectric;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-import com.xtremelabs.robolectric.internal.RealObject;
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import android.graphics.Bitmap;
+
+import com.xtremelabs.robolectric.Robolectric;
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
+import com.xtremelabs.robolectric.internal.RealObject;
 
 @SuppressWarnings({"UnusedDeclaration"})
 @Implements(Bitmap.class)

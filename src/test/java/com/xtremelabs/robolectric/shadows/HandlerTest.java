@@ -1,19 +1,21 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.xtremelabs.robolectric.Robolectric;
-import com.xtremelabs.robolectric.WithTestDefaultsRunner;
-import com.xtremelabs.robolectric.util.TestRunnable;
-import com.xtremelabs.robolectric.util.Transcript;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
 import static com.xtremelabs.robolectric.Robolectric.newInstanceOf;
 import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import android.os.Handler;
+import android.os.Looper;
+
+import com.xtremelabs.robolectric.Robolectric;
+import com.xtremelabs.robolectric.WithTestDefaultsRunner;
+import com.xtremelabs.robolectric.util.TestRunnable;
+import com.xtremelabs.robolectric.util.Transcript;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class HandlerTest {

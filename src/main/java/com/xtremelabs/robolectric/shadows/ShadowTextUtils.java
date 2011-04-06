@@ -1,6 +1,7 @@
 package com.xtremelabs.robolectric.shadows;
 
 import android.text.TextUtils;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 import com.xtremelabs.robolectric.util.Join;

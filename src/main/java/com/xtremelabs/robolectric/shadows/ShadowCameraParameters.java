@@ -1,13 +1,14 @@
 package com.xtremelabs.robolectric.shadows;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.graphics.ImageFormat;
 import android.hardware.Camera;
+
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Shadows the Android {@code Camera.Parameters} class.

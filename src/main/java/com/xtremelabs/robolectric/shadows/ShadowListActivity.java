@@ -1,12 +1,12 @@
 package com.xtremelabs.robolectric.shadows;
 
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 import android.app.ListActivity;
 import android.view.View;
 import android.widget.ListView;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
-
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 
 /**
  * Shadow of {@code ListActivity} that supports the retrieval of {@code ListViews}

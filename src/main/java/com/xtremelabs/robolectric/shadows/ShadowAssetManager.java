@@ -1,16 +1,17 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.content.res.AssetManager;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-import com.xtremelabs.robolectric.res.ResourceLoader;
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import android.content.res.AssetManager;
+
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
+import com.xtremelabs.robolectric.res.ResourceLoader;
 
 @SuppressWarnings({"UnusedDeclaration"})
 @Implements(AssetManager.class)

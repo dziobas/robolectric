@@ -1,17 +1,19 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.text.style.URLSpan;
-import android.widget.TextView;
-import com.xtremelabs.robolectric.WithTestDefaultsRunner;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import static java.util.Arrays.asList;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Arrays.asList;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import android.text.style.URLSpan;
+import android.widget.TextView;
+
+import com.xtremelabs.robolectric.WithTestDefaultsRunner;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class TextViewTest {

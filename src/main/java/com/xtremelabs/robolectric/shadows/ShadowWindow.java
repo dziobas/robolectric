@@ -2,6 +2,7 @@ package com.xtremelabs.robolectric.shadows;
 
 import android.view.Window;
 import android.view.WindowManager;
+
 import com.xtremelabs.robolectric.internal.Implementation;
 import com.xtremelabs.robolectric.internal.Implements;
 

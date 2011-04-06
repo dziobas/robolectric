@@ -1,15 +1,17 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.view.View;
-import android.widget.ExpandableListView;
-import com.xtremelabs.robolectric.WithTestDefaultsRunner;
-import com.xtremelabs.robolectric.util.Transcript;
+import static org.hamcrest.CoreMatchers.sameInstance;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.hamcrest.CoreMatchers.sameInstance;
-import static org.junit.Assert.assertThat;
+import android.view.View;
+import android.widget.ExpandableListView;
+
+import com.xtremelabs.robolectric.WithTestDefaultsRunner;
+import com.xtremelabs.robolectric.util.Transcript;
 
 @RunWith(WithTestDefaultsRunner.class)
 public class ExpandableListViewTest {

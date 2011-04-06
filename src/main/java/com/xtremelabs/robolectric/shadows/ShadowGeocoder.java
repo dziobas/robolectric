@@ -1,14 +1,15 @@
 package com.xtremelabs.robolectric.shadows;
 
-import android.location.Address;
-import android.location.Geocoder;
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import android.location.Address;
+import android.location.Geocoder;
+
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
 
 /**
  * A shadow for Geocoder that supports simulated responses and failures

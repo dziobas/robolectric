@@ -1,6 +1,7 @@
 package com.xtremelabs.robolectric.shadows;
 
 import android.hardware.Camera;
+
 import com.xtremelabs.robolectric.internal.Implements;
 import com.xtremelabs.robolectric.internal.RealObject;
 

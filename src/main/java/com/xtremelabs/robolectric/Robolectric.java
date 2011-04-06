@@ -53,6 +53,7 @@ import android.os.Looper;
 import android.preference.DialogPreference;
 import android.preference.Preference;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -193,6 +194,7 @@ public class Robolectric {
                 ShadowListView.class,
                 ShadowLocation.class,
                 ShadowLocationManager.class,
+                ShadowLog.class,
                 ShadowLooper.class,
                 ShadowMapController.class,
                 ShadowMapActivity.class,
@@ -516,6 +518,10 @@ public class Robolectric {
 
     public static ShadowNotification shadowOf(Notification other) {
         return (ShadowNotification) Robolectric.shadowOf_(other);
+    }
+    
+    public static ShadowLog shadowOf(Log other) {
+    	return (ShadowLog) Robolectric.shadowOf_(other);
     }
 
     public static ShadowAbsSeekBar shadowOf(AbsSeekBar instance) {

@@ -1,5 +1,12 @@
 package com.xtremelabs.robolectric.tester.org.apache.http;
 
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.ws.http.HTTPException;
+
 import org.apache.http.Header;
 import org.apache.http.HttpException;
 import org.apache.http.HttpHost;
@@ -7,11 +14,6 @@ import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.RequestDirector;
 import org.apache.http.protocol.HttpContext;
-
-import javax.xml.ws.http.HTTPException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class FakeHttpLayer {
     List<HttpResponse> pendingHttpResponses = new ArrayList<HttpResponse>();
