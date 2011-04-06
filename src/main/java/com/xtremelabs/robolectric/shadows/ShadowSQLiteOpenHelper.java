@@ -52,7 +52,7 @@ public class ShadowSQLiteOpenHelper {
     }
 
     private SQLiteDatabase getDB() {
-        if(database == null) {
+        if(database == null || !database.isOpen()) {
             database = SQLiteDatabase.openDatabase("path", null, 0);
 
             Cursor c = null;
