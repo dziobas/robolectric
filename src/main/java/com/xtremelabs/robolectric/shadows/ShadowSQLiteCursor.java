@@ -70,7 +70,7 @@ public class ShadowSQLiteCursor extends ShadowAbstractCursor {
     @Override
     public final boolean moveToFirst() {
         try {
-            if(resultList.isEmpty()) {
+            if(resultList==null || resultList.isEmpty()) {
                 return false;
             } else {
                 current  = resultList.getFirst();
@@ -87,7 +87,7 @@ public class ShadowSQLiteCursor extends ShadowAbstractCursor {
     @Override
     public boolean moveToNext() {
         try {
-            if(iterator.hasNext()) {
+            if(iterator!=null && iterator.hasNext()) {
                 current = iterator.next();
 
                 return true;
@@ -163,6 +163,7 @@ public class ShadowSQLiteCursor extends ShadowAbstractCursor {
         try {
             resultList.clear();
             resultList = null;
+            iterator = null;
         } catch(Exception e) {
             throw new RuntimeException("Exception in close", e);
         }
