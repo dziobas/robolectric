@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -144,7 +145,7 @@ public class Robolectric {
                 ShadowAppWidgetManager.class,
                 ShadowArrayAdapter.class,
                 ShadowAssetManager.class,
-                ShadowAsyncTask.class,
+//                ShadowAsyncTask.class,
                 ShadowAudioManager.class,
                 ShadowBaseAdapter.class,
                 ShadowBitmap.class,
@@ -172,6 +173,7 @@ public class Robolectric {
                 ShadowCookieManager.class,
                 ShadowDateFormat.class,
                 ShadowCountDownTimer.class,
+                ShadowCursorWrapper.class,
                 ShadowDefaultRequestDirector.class,
                 ShadowDisplay.class,
                 ShadowDrawable.class,
@@ -200,6 +202,7 @@ public class Robolectric {
                 ShadowMapActivity.class,
                 ShadowMapView.class,
                 ShadowMatrix.class,
+                ShadowMatrixCursor.class,
                 ShadowMediaPlayer.class,
                 ShadowMediaRecorder.class,
                 ShadowMediaStore.ShadowImages.ShadowMedia.class,
@@ -538,6 +541,10 @@ public class Robolectric {
     
     public static ShadowGridView shadowOf(GridView instance) {
     	return (ShadowGridView) shadowOf_(instance);
+    }
+    
+    public static ShadowMatrixCursor shadowOf(MatrixCursor instance) {
+    	return (ShadowMatrixCursor) shadowOf_(instance);
     }
     
     @SuppressWarnings({"unchecked"})
