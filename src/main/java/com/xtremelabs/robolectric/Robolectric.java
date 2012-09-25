@@ -388,6 +388,10 @@ public class Robolectric {
         return (ShadowAbsSeekBar) shadowOf_(instance);
     }
 
+    public static ShadowAbstractThreadedSyncAdapter shadowOf(AbstractThreadedSyncAdapter instance){
+        return (ShadowAbstractThreadedSyncAdapter) shadowOf_(instance);
+    }
+
     public static ShadowAccountManager shadowOf(AccountManager instance) {
         return (ShadowAccountManager) shadowOf_(instance);
     }
