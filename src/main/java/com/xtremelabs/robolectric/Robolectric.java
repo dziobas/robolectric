@@ -121,6 +121,7 @@ public class Robolectric {
                 ShadowAbsSeekBar.class,
                 ShadowAbsSpinner.class,
                 ShadowAbstractCursor.class,
+                ShadowAbstractThreadedSyncAdapter.class,
                 ShadowAccount.class,
                 ShadowAccountManager.class,
                 ShadowActivity.class,
